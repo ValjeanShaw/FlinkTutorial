@@ -8,7 +8,7 @@ import org.apache.flink.api.java.tuple.Tuple2;
 /**
  * 批处理word count
  */
-public class WordCountJava {
+public class WordCountDataSet {
     public static void main(String[] args) throws Exception {
         //创建执行环境
         ExecutionEnvironment executionEnvironment = ExecutionEnvironment.getExecutionEnvironment();
@@ -22,8 +22,6 @@ public class WordCountJava {
                 .sum(1);          //将第二个位置的数据求和
 
         resultSet.print();
-
     }
-
 }
 
