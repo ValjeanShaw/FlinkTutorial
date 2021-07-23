@@ -12,3 +12,4 @@ logs
 .settings/
 out
 */dependency-reduced-pom.xml
+src/test
