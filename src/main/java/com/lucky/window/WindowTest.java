@@ -21,19 +21,34 @@ public class WindowTest {
                 Tuple2.of("class2", 5));
         
         //滚动时间窗口
-        dataStream.keyBy(new UidKeySelector()).window(TumblingProcessingTimeWindows.of(Time.seconds(1))).sum(1).print();
+        dataStream.keyBy(new UidKeySelector())
+                .window(TumblingProcessingTimeWindows.of(Time.seconds(1)))
+                .sum(1)
+                .print();
         
-//        //滑动时间窗口
-        dataStream.keyBy(new UidKeySelector()).window(SlidingProcessingTimeWindows.of(Time.seconds(1),Time.seconds(1))).sum(1).print();
+        //滑动时间窗口
+        dataStream.keyBy(new UidKeySelector())
+                .window(SlidingProcessingTimeWindows.of(Time.seconds(1),Time.seconds(1)))
+                .sum(1)
+                .print();
 
         //会话时间窗口
-        dataStream.keyBy(new UidKeySelector()).window(EventTimeSessionWindows.withGap(Time.seconds(5))).sum(1).print();
+        dataStream.keyBy(new UidKeySelector())
+                .window(EventTimeSessionWindows.withGap(Time.seconds(5)))
+                .sum(1)
+                .print();
 
         //滚动计数窗口
-        dataStream.keyBy(new UidKeySelector()).countWindow(1).sum(1).print();
+        dataStream.keyBy(new UidKeySelector())
+                .countWindow(1)
+                .sum(1)
+                .print();
 
         //滑动计数窗口
-        dataStream.keyBy(new UidKeySelector()).countWindow(2,1).sum(1).print();
+        dataStream.keyBy(new UidKeySelector())
+                .countWindow(2,1)
+                .sum(1)
+                .print();
 
         environment.execute();
     }
